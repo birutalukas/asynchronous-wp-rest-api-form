@@ -20,21 +20,49 @@ document.addEventListener("DOMContentLoaded", function () {
         alert(msg);
     };
 
+    // Collect inputs
+    const name = document.getElementById("customer-name");
+    const contact = document.getElementById("customer-contact");
+    const message = document.getElementById("customer-message");
+    const aggree = document.getElementById("aggree-with-privacy");
+
+    name.addEventListener("input", function () {
+        if (this.value.trim().length) {
+            this.classList.remove("invalid");
+        }
+    });
+
+    contact.addEventListener("input", function () {
+        if (this.value.trim().length) {
+            this.classList.remove("invalid");
+        }
+    });
+
+    message.addEventListener("input", function () {
+        if (this.value.trim().length) {
+            this.classList.remove("invalid");
+        }
+    });
+
+    aggree.addEventListener("input", function () {
+        if (this.value.trim().length) {
+            this.classList.remove("invalid");
+        }
+    });
     const formSubmitHandler = async (e) => {
         e.preventDefault();
-
-        // Collect inputs
-        const name = document.getElementById("customer-name");
-        const contact = document.getElementById("customer-contact");
-        const message = document.getElementById("customer-message");
 
         // Clear invalids
         name.classList.remove("invalid");
         contact.classList.remove("invalid");
         message.classList.remove("invalid");
+        aggree.classList.remove("invalid");
 
         const formIsValid =
-            name.value !== "" && contact.value !== "" && message.value !== "";
+            name.value !== "" &&
+            contact.value !== "" &&
+            message.value !== "" &&
+            aggree.checked === true;
 
         // Check validity
         if (name.value === "") {
@@ -46,7 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (message.value === "") {
             message.classList.add("invalid");
         }
-
+        if (aggree.checked !== true) {
+            aggree.classList.add("invalid");
+        }
         if (!formIsValid) {
             return;
         }

@@ -40,6 +40,7 @@
             <div class="form-row form-row--flex">
                 <div class="form-col__privacy">
                     <input type="checkbox" name="aggree-with-privacy" id="aggree-with-privacy">
+                    <div class="custom-aggree-checkbox"></div>
                     <label for="aggree-with-privacy">I consent with the personal data processing policy as it is described in the <a href="<?= get_privacy_policy_url(); ?>">Privacy Policy</a>.</label>
                 </div>
                 <div class="form-col__submit">
