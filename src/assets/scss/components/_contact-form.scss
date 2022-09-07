@@ -1,0 +1,252 @@
+.contact-form {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        background-color: $color-primary;
+        width: 100;
+        min-height: 100vh;
+        padding-top: 104px;
+        padding-bottom: 64px;
+        @include fluid-type(padding-left, 375px, 1600px, 24px, 110px);
+        @include fluid-type(padding-right, 375px, 1600px, 24px, 110px);
+
+        // DESKTOP
+        @include mfresponsive(992px) {
+            // margin: 0 auto;
+            width: 82%;
+            max-width: 1312px;
+            border-radius: 16px;
+            margin: 144px auto;
+            flex-direction: row;
+        }
+    }
+    &__contacts {
+        &-wrapper {
+            @include mfresponsive(992px) {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+        &-items {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 46px;
+        }
+        &-item {
+            width: 50%;
+            @include mfresponsive(992px) {
+                width: 100%;
+                margin-bottom: 64px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            h2 {
+                font-family: "Poppins-SemiBold", sans-serif;
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+    }
+    &__content {
+        @include mfresponsive(992px) {
+            width: 50%;
+        }
+        .textarea-wrapper {
+            position: relative;
+
+            .invalid-textarea-mark {
+                display: none;
+            }
+            textarea.invalid {
+                + .invalid-textarea-mark {
+                    display: block;
+                    position: absolute;
+                    content: "";
+                    right: 14px;
+                    top: 46px;
+                }
+            }
+        }
+        .input-wrapper {
+            position: relative;
+
+            input {
+                display: block;
+                width: 100%;
+                &.invalid {
+                    + .invalid-input-mark {
+                        display: block;
+                        position: absolute;
+                        content: "";
+                        right: 14px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+            .invalid-input-mark {
+                display: none;
+            }
+        }
+        form {
+            &.hidden {
+                display: none;
+            }
+        }
+        label {
+            display: block;
+            width: 100%;
+            font-family: "Poppins-SemiBold", sans-serif;
+            font-size: 10px;
+            line-height: 24px;
+            color: $color-body;
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            display: block;
+            width: 100%;
+            font-family: "Poppins-Regular", sans-serif;
+            font-size: 14px;
+            line-height: 24px;
+        }
+        input,
+        textarea {
+            border-radius: 8px;
+            background-color: $color-primary--dark;
+            padding: 12px 20px;
+            outline: none;
+            border: none;
+            color: $color-body;
+            &::placeholder {
+                font-size: 14px;
+                line-height: 24px;
+                color: $color-primary--light;
+            }
+        }
+    }
+    &__success {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 64px 24px;
+        border-radius: 16px;
+        background-color: #f8f8f8;
+
+        &.open {
+            display: flex;
+        }
+        img {
+            margin-bottom: 60px;
+        }
+        h2 {
+            font-family: "Poppins-SemiBold", sans-serif;
+            font-size: 24px;
+            line-height: 32px;
+            margin-bottom: 16px;
+            color: $color-secondary;
+        }
+        .response-message {
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            color: #70767e;
+            margin-bottom: 24px;
+        }
+    }
+    &__whait {
+        display: none;
+        h3 {
+            text-align: center;
+            font-size: 24px;
+            line-height: 24px;
+            color: $color-body;
+            font-family: "Poppins-SemiBold", sans-serif;
+        }
+        &.open {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 50vh;
+        }
+    }
+}
+
+.form {
+    &-row {
+        margin-bottom: 24px;
+        &--flex {
+            flex-direction: column;
+
+            display: flex;
+            @include mfresponsive(768px) {
+                flex-wrap: wrap;
+                flex-direction: row;
+                padding-right: 20px;
+            }
+        }
+    }
+    &-col {
+        &__privacy {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 24px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            padding-right: 32px;
+            @include mfresponsive(768px) {
+                width: 60%;
+            }
+            input[type="checkbox"] {
+                width: 16px;
+                height: 16px;
+                margin-right: 12px;
+            }
+            label {
+                font-size: 14px;
+                line-height: 24px;
+            }
+            a {
+                font-family: "Poppins-SemiBold", sans-serif;
+                text-decoration: underline;
+            }
+        }
+        &__submit {
+            width: 100%;
+            @include mfresponsive(768px) {
+                width: 40%;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.spinner {
+    animation: 5s rotate infinite;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    color: $color-body;
+    -webkit-box-shadow: 0 0 0 30px $color-primary--dark inset !important;
+}
